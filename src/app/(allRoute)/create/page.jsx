@@ -1,6 +1,10 @@
 "use client"
 
+import { AuthContext } from "@/components/authContext";
+import axios from "axios";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 // import { AuthContext } from '@/app/components/AuthContext';
 // import axios from 'axios';
@@ -9,30 +13,30 @@ import { useForm } from "react-hook-form";
 // import Swal from 'sweetalert2';
 
 const Createe = () => {
-    // const {user} = useContext(AuthContext)
+    const {user} = useContext(AuthContext)
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data =>{
-        // const alldata =  {post : data?.post,email: user?.email}
+        const alldata =  {post : data?.post,email: user?.email}
         console.log(data);
 
-        // axios.post("http://localhost:5000/all",alldata)
-        // .then(res=>{
-        //     // console.log(res.data);
-        //     if(res.data.acknowledged === true){
+        axios.post("http://localhost:5000/all",alldata)
+        .then(res=>{
+            // console.log(res.data);
+            if(res.data.acknowledged === true){
                 
-        //         Swal.fire({
-        //             position: 'top',
-        //             icon: 'success',
-        //             title: 'Post created successfully',
-        //             showConfirmButton: false,
-        //             timer: 1500
-        //           })
-        //     }
-        // })
-        // .catch(error=>{
-        //     console.log(error.message);
-        // })
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: 'Post created successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            }
+        })
+        .catch(error=>{
+            console.log(error.message);
+        })
     }
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='nnn2'>

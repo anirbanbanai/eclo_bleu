@@ -5,10 +5,15 @@ import React from 'react';
 const layout = ({children}) => {
     return (
         <div>
-            <LeftSideBar/>
-            {children}
-            <Navbar/>
-        </div>
+        <Navbar/>
+       <div className='grid md:grid-cols-5'>
+          <LeftSideBar />
+         <div className='col-span-4 max-md:pt-20'>
+         {children}
+         </div>
+      </div>
+    
+     </div>
     );
 };
 

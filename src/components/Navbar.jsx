@@ -1,7 +1,8 @@
 import Image from "next/image";
 import NavLink from "./Navlinks";
 import Link from "next/link";
-import { RouteLinks } from "@/utils/RouteLinks";
+import { RouteLinks } from "@/lib/AllRoute";
+// import { RouteLinks } from "@/utils/RouteLinks";
 
 
 const Navbar = () => {

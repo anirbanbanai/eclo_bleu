@@ -1,20 +1,28 @@
 "use client"
 
-import  { useContext } from 'react';
+import { useContext } from "react";
+import { AuthContext } from "./authContext";
+import Image from "next/image";
+import NavLink from "./Navlinks";
+import Link from "next/link";
+import { RouteLinks } from "@/lib/AllRoute";
+// import { RouteLinks } from "@/utils/RouteLinks";
 
+// import  { useContext } from 'react';
 
+// import Image from 'next/image';
+// // import { AuthContext } from './AuthContext';
+// import Swal from 'sweetalert2';
+// import { RouteLinks } from '@/utils/RouteLinks';
+// import NavLink from './Navlinks';
+// import Link from 'next/link';
 
-import Image from 'next/image';
-// import { AuthContext } from './AuthContext';
-import Swal from 'sweetalert2';
-import { RouteLinks } from '@/utils/RouteLinks';
-import NavLink from './Navlinks';
 const LeftSideBar = () => {
 
-    // const {user,LogOut} = useContext(AuthContext)
+    const {user,LogOut} = useContext(AuthContext)
 
     const handleLogOut=()=>{
-        // LogOut()
+        LogOut()
         Swal.fire({
             position: 'top',
             icon: 'success',
@@ -39,10 +47,10 @@ const LeftSideBar = () => {
  }
 
             </div>
-           {/* {!user ? <Link href="/login">
+           {!user ? <Link href="/login">
             <button className='btn btn-warning rounded-3xl'>Login</button>
             </Link> :
-            <button onClick={handleLogOut} className='btn bg-red-400 rounded-3xl'>LogOut</button>} */}
+            <button onClick={handleLogOut} className='btn bg-red-400 rounded-3xl'>LogOut</button>}
         </div>
     );
 };

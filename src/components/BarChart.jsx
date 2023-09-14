@@ -1,71 +1,67 @@
-// "use client"
-// import { useEffect, useState } from "react";
-// import {Pie} from 'react-chartjs-2';
-// import { Bar } from "react-chartjs-2";
-// import {
-//     Chart as ChartJS,
-//     CaragoryScal,
-//     LinearScale,
-//     BarElement,
-//     Title,
-//     Tooltip,
-//     Legend
-// } from "chart.js";
+'use client'
 
-// // ChartJS.register(
-// //     CaragoryScal,
-// //     LinearScale,
-// //     BarElement,
-// //     Title,
-// //     Tooltip,
-// //     Legend
-// // )
+import React, { useState, useEffect } from 'react';
+import { Bar } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 
-
-
-
-
-// const BarChart = () => {
-//     const [chartData, setChartData] = useState({
-//         datasets: [],
-//     })
-//     const [chartOption, setChartOption] = useState();
-
-//     useEffect(() => {
-//         setChartData({
-//             labels: ["Mon", "Tues", "Wed ", "Thurs", "Fri", "Sat", "Sun"],
-//             datasets: [
-//                 {
-//                     label: "Sales $",
-//                     data: [13312, 234434, 45324, 67656, 2344, 898765, 54656],
-//                     borderColor: "rgb(53,162,235)",
-//                     backgroundColor: 'rgb(53,162,235,0.4)',
-//                 }
-//             ]
-//         })
-//     }, [])
-//     return (
-//         <>
-//             <div className="w-full md:col-span-2 relative lg:h-[70vh] h-[50vh] m-auto p-4 border rounded-xl ">
-//                 {/* <Bar data={chartData} options={chartOption}/> */}
-               
-
-//             </div>
-//         </>
-//     );
-// };
-
-
-// export default BarChart;
-
-import React from 'react';
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const BarChart = () => {
-    return (
-        <div>
-            barchat
-        </div>
-    );
+  const [chartData, setChartData] = useState({
+    datasets: [],
+  });
+
+  const [chartOptions, setChartOptions] = useState({});
+
+  useEffect(() => {
+    setChartData({
+        labels: ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'],
+        datasets: [
+            {
+                label: 'Sales $',
+                data: [18127, 22201, 19490, 17938, 24182, 17842, 22475],
+                borderColor: 'rgb(53, 162, 235)',
+                backgroundColor: 'rgb(53, 162, 235, 0.4',
+              }, 
+        ]
+    })
+    setChartOptions({
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Daily Revenue'
+            }
+        },
+        maintainAspectRatio: false,
+        responsive: true
+    })
+  }, [])
+
+  return (
+    <>
+      <div className='w-full md:col-span-2 relative lg:h-[70vh] h-[50vh] m-auto p-4 border rounded-lg bg-white'>
+        <Bar data={chartData} options={chartOptions} />
+      </div>
+    </>
+  );
 };
 
 export default BarChart;

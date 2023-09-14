@@ -14,6 +14,7 @@ import { BiLogInCircle } from "react-icons/bi";
 import { FcRegisteredTrademark } from "react-icons/fc";
 import { FaUserClock } from "react-icons/fa";
 import { RiLogoutCircleLine } from "react-icons/ri";
+import { PiSketchLogo } from "react-icons/pi";
 
 
 const Navbar = () => {
@@ -32,7 +33,8 @@ const Navbar = () => {
     return (
         <div className='fixed top-0 z-10 w-full  bg-glassmorphism  backdrop-blur-lg xs:px-7 md:hidden nnn'>
             <div className='flex justify-between items-center p-3'>
-                <Image alt='logo' src="/logo.svg" width={55} height={55}></Image>
+                {/* <Image alt='logo' src="/logo.svg" width={55} height={55}></Image> */}
+                <PiSketchLogo className="text-6xl bg-purple-700 p-1 rounded-3xl  text-white "/>
                 {
                     NavRouteLink.map(({ route, icon, exact }) => (
                         <NavLink activeClassName="bg-red-500  p-1 rounded-3xl" href={route} exact={route === "/"} key={route}><h1 className='text-2xl bg-blue-100 rounded-3xl p-3'>{icon}</h1></NavLink>

@@ -27,7 +27,7 @@ const page = () => {
     }, [])
     console.log(data);
     return (
-        <div className='m-5   '>
+        <div className='m-2  md:m-5 '>
            
             {
             data?.map(m=><SubMainpage key={m._id} main={m}></SubMainpage>)

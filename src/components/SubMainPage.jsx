@@ -12,7 +12,7 @@ const SubMainpage = ({ main }) => {
     console.log(main);
     const { post, email,img,name } = main
     return (
-        <div className=' p-3 border border-stone-600  m-4 rounded-xl'>
+        <div className=' p-2 md:p-3 border border-stone-600  m-4 rounded-xl'>
             <div className='mb-5 flex items-center gap-2'>
 
                 <Image src={img} alt='svg' className=' rounded-full' width={34} height={34} />
@@ -27,9 +27,10 @@ const SubMainpage = ({ main }) => {
             <div className='md:flex md:justify-between'>
 
                 <div className='flex  max-md:justify-between items-center mt-5 md:gap-10'>
-                    <p className='flex'><FcLikePlaceholder className='text-2xl mr-2' /> <span>React</span></p>
-                    <p className='flex'><VscCommentDiscussion className='text-2xl mr-2' /> <span>Comment</span></p>
-                    <p className='flex'><FaShare className='text-2xl mr-2' /> <span>Share</span></p>
+                    <p className='flex'><FcLikePlaceholder className='text-2xl mr-2' /> <span className='max-sm:hidden'>React</span></p>
+                    <p className='flex'><VscCommentDiscussion className='text-2xl mr-2' /> <span className='max-sm:hidden'>Comment</span></p>
+                    <p className='flex'><FaShare className='text-2xl mr-2' /> <span className='max-sm:hidden'>Share</span></p>
+                    <p className='md:hidden'><BsBookmarks className='text-2xl' /></p>
                 </div>
 
                 <div className='max-md:hidden flex items-center'>

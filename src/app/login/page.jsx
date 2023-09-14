@@ -7,16 +7,6 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 
-// import Link from 'next/link';
-// import React, { useContext } from 'react';
-// import { useForm } from 'react-hook-form';
-// import { AuthContext } from '../components/AuthContext';
-// import Swal from 'sweetalert2';
-// import createJWT from '../utils/createJWT';
-// import { NextResponse } from 'next/server';
-// import { useRouter } from 'next/navigation';
-// // import createJWT from '@/utils/createJWT';
-
 const Login = () => {
     const router = useRouter();
     const {LoginUser} = useContext(AuthContext)

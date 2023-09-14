@@ -1,5 +1,5 @@
 "use client"
-import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateCurrentUser} from 'firebase/auth'
+import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateCurrentUser, updateProfile} from 'firebase/auth'
 import { createContext, useEffect, useState } from "react";
 import app from '../../firebase.config';
 
@@ -24,6 +24,11 @@ const ProviderRoute = ({children})=>{
         return updateCurrentUser(auth.currentUser,{displayName: name, photoURL: img } )
     }
 
+    const updateUserProfile = (name, photo) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: photo
+        })
+      }
     useEffect(()=>{
         const unSub = onAuthStateChanged(auth, currentUser=>{
             setUser(currentUser)
@@ -37,7 +42,8 @@ const ProviderRoute = ({children})=>{
         createUser,
         LoginUser,
         LogOut,
-        updateUserInfo
+        updateUserInfo,
+        updateUserProfile
     }
     return <AuthContext.Provider value={authInfo}>
         {children}

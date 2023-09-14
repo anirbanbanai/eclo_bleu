@@ -6,6 +6,7 @@ import Image from "next/image";
 import NavLink from "./Navlinks";
 import Link from "next/link";
 import { RouteLinks } from "@/lib/AllRoute";
+import Swal from "sweetalert2";
 // import { RouteLinks } from "@/utils/RouteLinks";
 
 // import  { useContext } from 'react';

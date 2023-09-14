@@ -3,19 +3,22 @@
 import { FcLikePlaceholder } from 'react-icons/fc';
 import { VscCommentDiscussion } from 'react-icons/vsc';
 import { FaShare } from 'react-icons/fa';
+import { MdOutlinePublic } from 'react-icons/md';
 import Image from 'next/image';
 import { BsBookmarks } from 'react-icons/bs';
 
 const SubMainpage = ({ main }) => {
-    const { post, email } = main
+
+    console.log(main);
+    const { post, email,img,name } = main
     return (
         <div className=' p-3 border border-stone-600  m-4 rounded-xl'>
-            <div className='mb-5 flex gap-2'>
+            <div className='mb-5 flex items-center gap-2'>
 
-                <Image src="/next.svg" alt='svg' className='bg-red-500 rounded-full' width={34} height={34} />
+                <Image src={img} alt='svg' className=' rounded-full' width={34} height={34} />
                 <div>
-                    <p className='font-bold '>{email}</p>
-                    <p>time date</p>
+                    <p className='font-bold '>{name}</p>
+                    <p className='flex gap-1 items-center'>2 hour ago <span><MdOutlinePublic/></span></p>
                 </div>
             </div>
             <div className='bg-white p-2 rounded-xl'>

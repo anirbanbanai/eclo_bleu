@@ -9,38 +9,63 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { AuthContext } from '@/components/authContext';
 
+const img_hosting_token = process.env.NEXT_PUBLIC_img_Upload_Token;
+
 const Register = () => {
     const router = useRouter();
-    const [error,setError] = useState()
-    const {createUser} = useContext(AuthContext)
+    const [error, setError] = useState()
+    const { createUser, updateUserProfile } = useContext(AuthContext)
     const { register, handleSubmit } = useForm();
-    const onSubmit = data =>{
-        createUser(data.email, data.pass)
-        // createJWT(data.email)
-        .then(data=>{
-           
-            console.log(data);
-           
-        })
+    const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`;
 
-        axios.post("http://localhost:5000/users", data)
-        .then(res=>{
-            console.log(res.data);
-            if(res.data.acknowledged === true){
-                router.push("/")
-                Swal.fire({
-                    position: 'top',
-                    icon: 'success',
-                    title: 'User created successfully',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-            }
-        })
-        .catch(error=>{
-            console.log(error.message);
-        })
-       
+    const onSubmit = data => {
+
+        const formData = new FormData;
+        formData.append("image", data.photo[0])
+        fetch(img_hosting_url, {
+            method: "POST",
+            body: formData
+        }).then(res => res.json())
+            .then(imgres => {
+                if (imgres.success) {
+                    const imgURL = imgres.data.display_url;
+                    const { name, email } = data;
+                    const allItem = { name, email, imgURL }
+                    updateUserProfile(data.name, imgURL)
+                        .then(data => {
+                            console.log("use update", data);
+                        });
+                    axios.post("https://bleust-server-886sy7kxr-anirbanbanai.vercel.app/all", allItem)
+                        .then(res => {
+                            console.log(res.data);
+                            if (res.data.acknowledged === true) {
+                                router.push("/")
+                                Swal.fire({
+                                    position: 'top',
+                                    icon: 'success',
+                                    title: 'User created successfully',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                })
+                            }
+                        })
+                        .catch(error => {
+                            console.log(error.message);
+                        })
+
+                }
+            })
+
+        createUser(data.email, data.pass)
+            // createJWT(data.email)
+            .then(data => {
+
+                console.log(data);
+
+            })
+
+
+
 
     }
     return (
@@ -82,7 +107,7 @@ const Register = () => {
                     <input  {...register("pass", { required: true })} type="password" placeholder="Confirm Password" className="input input-bordered w-full " />
                 </div>
                 <div>
-                    <input type="file" className="mt-5 file-input file-input-bordered file-input-warning w-full " />
+                    <input {...register("photo", { required: true })} type="file" className="mt-5 file-input file-input-bordered file-input-warning w-full " />
                 </div>
 
                 <div className="flex items-center justify-center mt-4">

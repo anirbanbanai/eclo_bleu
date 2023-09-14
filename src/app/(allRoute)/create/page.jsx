@@ -40,7 +40,7 @@ const Createe = () => {
             })
     }
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className='nnn2'>
+        <form onSubmit={handleSubmit(onSubmit)} className='nnn2 pt-10'>
             <h2 className='text-4xl font-bold text-center'> Create Post</h2>
             <div className='p-5'>
 

@@ -24,11 +24,29 @@ export const RouteLinks=[
     {
        route: "/chat",
        name: "Chat",
-       icon: <BsChatDots/>
+       icon: <BsChatDots />
     }, 
     // {
     //     route: "/member",
     //     name: "Member",
     //     icon: <BsPeopleFill/>
     //  },
+]
+
+export const NavRouteLink = [
+   {
+      route: "/",
+      name: "Home",
+      icon: <BiHome/>
+   },
+   {
+      route: "/dashboard",
+      name: "Dashboard",
+      icon: <RxDashboard/>
+   },
+   {
+      route: "/create",
+      name: "Create",
+      icon: <IoCreateOutline/>
+   },
 ]

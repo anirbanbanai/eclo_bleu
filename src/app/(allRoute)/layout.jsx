@@ -8,7 +8,7 @@ const layout = ({children}) => {
         <Navbar/>
        <div className='grid md:grid-cols-5'>
           <LeftSideBar />
-         <div className='col-span-4 max-md:pt-20'>
+         <div className='col-span-4 max-md:pt-24'>
          {children}
          </div>
       </div>

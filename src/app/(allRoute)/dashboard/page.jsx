@@ -10,7 +10,7 @@ const page = () => {
             <TopDashBar />
             <div className='grid lg:grid-cols-2'>
            <div>
-           {/* <BarChart /> */}
+           <BarChart />
            </div>
                <div>
                <RecentOrders />

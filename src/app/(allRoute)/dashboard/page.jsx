@@ -7,7 +7,7 @@ import React from 'react';
 
 const page = () => {
     return (
-        <div className='m-9 p-3'>
+        <div className=''>
             <TopDashBar />
             <div className='grid lg:grid-cols-2'>
            <div>

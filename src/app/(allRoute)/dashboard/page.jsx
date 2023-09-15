@@ -1,4 +1,5 @@
 import BarChart from '@/components/BarChart';
+import MultyTyprChart from '@/components/MultyTyprChart';
 import RecentOrders from '@/components/RecentOrder';
 import RecentOrder from '@/components/RecentOrder';
 import TopDashBar from '@/components/TopDashBar';
@@ -16,6 +17,7 @@ const page = () => {
                <RecentOrders />
                </div>
             </div>
+            <MultyTyprChart/>
         </div>
     );
 };

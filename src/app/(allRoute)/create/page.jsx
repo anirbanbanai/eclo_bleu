@@ -2,6 +2,7 @@
 
 import { AuthContext } from "@/components/authContext";
 import axios from "axios";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
@@ -19,7 +20,7 @@ const Createe = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         const alldata = { post: data?.post, email: user?.email, name: user?.displayName, img: user?.photoURL }
-        console.log(data);
+        // console.log(data);
 
         axios.post("https://bleust-server-886sy7kxr-anirbanbanai.vercel.app/all", alldata)
             .then(res => {
@@ -42,7 +43,7 @@ const Createe = () => {
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='nnn2 pt-10'>
             <h2 className='text-4xl font-bold text-center'> Create Post</h2>
-            <div className='p-5'>
+            <div className='p-5 md:p-14'>
 
 
                 <div className="form-control">
@@ -51,7 +52,7 @@ const Createe = () => {
 
                 </div>
             </div>
-            <button className='btn btn-primary flex  mx-auto'>Post</button>
+           {user ? <button className='btn btn-primary flex  mx-auto'>Post</button> : <Link className="text-2xl font-bold text-red-500 text-center flex justify-center" href="/login">Login First!!</Link>}
         </form>
     );
 };

@@ -37,7 +37,7 @@ const Register = () => {
                         });
                     axios.post("https://bleust-server-886sy7kxr-anirbanbanai.vercel.app/all", allItem)
                         .then(res => {
-                            console.log(res.data);
+                            // console.log(res.data);
                             if (res.data.acknowledged === true) {
                                 router.push("/")
                                 Swal.fire({
@@ -60,7 +60,7 @@ const Register = () => {
             // createJWT(data.email)
             .then(data => {
 
-                console.log(data);
+                // console.log(data);
 
             })
 

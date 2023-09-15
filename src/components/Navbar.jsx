@@ -19,7 +19,7 @@ import { PiSketchLogo } from "react-icons/pi";
 
 const Navbar = () => {
     const {user,LogOut} = useContext(AuthContext)
-    console.log(user);
+    // console.log(user);
     const handleLogOut=()=>{
         LogOut()
         Swal.fire({
@@ -53,24 +53,24 @@ const Navbar = () => {
                             
                             <li>
                             <Link href='/chat'>
-                            <h1 className='text-3xl '><BsChatDots/></h1>
+                            <h1 className='flex gap-2 items-center text-3xl '><BsChatDots/> <span className="text-sm font-semibold">Chat</span></h1>
                             </Link>
                             </li>
                             <li>
-                               <Link href="/profile">
-                               <span><FaUserClock className="text-3xl"/></span>
+                               <Link  href="/profile">
+                               <span className="flex gap-2 items-center"><FaUserClock className="text-3xl"/><span className="text-sm font-semibold">Profile</span></span>
                                </Link>
                             </li>
                             <li>
                                 {!user ? <Link href="/login">
-                                    <span><BiLogInCircle className="text-3xl"/></span>
+                                    <span className="flex gap-2 items-center"><BiLogInCircle className="text-3xl"/> <span className="text-sm font-semibold">Login</span></span>
                                 </Link> :
-                                    <button onClick={handleLogOut} className='text-3xl'>
-                                        <RiLogoutCircleLine/></button>}
+                                    <button onClick={handleLogOut} className='text-red-500 text-3xl'>
+                                        <RiLogoutCircleLine/> <span className="text-sm font-semibold">Logout</span></button>}
                             </li>
                             <li><Link href="/register">
-                                <span>
-                                    <FcRegisteredTrademark className="text-3xl"/>
+                                <span className="flex gap-2 items-center">
+                                    <FcRegisteredTrademark className="text-3xl"/> <span className="text-sm font-semibold">Register</span>
                                 </span>
                             </Link></li>
                         </ul>

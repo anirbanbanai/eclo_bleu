@@ -12,13 +12,13 @@ const Login = () => {
     const {LoginUser} = useContext(AuthContext)
     const { register, handleSubmit } = useForm();
     const onSubmit = data =>{
-        console.log(data);
+        // console.log(data);
         LoginUser(data.email, data.pass)
         // createJWT(data.email)
         .then(data=>{
             router.push("/")
           
-            console.log(data);
+            // console.log(data);
             Swal.fire({
                 position: 'top',
                 icon: 'success',

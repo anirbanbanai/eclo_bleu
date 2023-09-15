@@ -25,7 +25,7 @@ const page = () => {
                 setData(data)
             })
     }, [])
-    console.log(data);
+    // console.log(data);
     return (
         <div className='m-2  md:m-5 '>
            

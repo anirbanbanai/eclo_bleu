@@ -17,7 +17,9 @@ const page = () => {
                <RecentOrders />
                </div>
             </div>
-            <MultyTyprChart/>
+          <div className='mt-10'>
+          <MultyTyprChart/>
+          </div>
         </div>
     );
 };

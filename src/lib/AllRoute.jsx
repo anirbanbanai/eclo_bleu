@@ -1,6 +1,7 @@
 
 import { BiHome } from 'react-icons/bi';
 import { BsChatDots } from 'react-icons/bs';
+import { FaUserClock } from 'react-icons/fa';
 import { IoCreateOutline } from 'react-icons/io5';
 import { RxDashboard } from 'react-icons/rx';
 
@@ -26,11 +27,11 @@ export const RouteLinks=[
        name: "Chat",
        icon: <BsChatDots />
     }, 
-    // {
-    //     route: "/member",
-    //     name: "Member",
-    //     icon: <BsPeopleFill/>
-    //  },
+    {
+        route: "/profile",
+        name: "Profile",
+        icon: <FaUserClock/>
+     },
 ]
 
 export const NavRouteLink = [

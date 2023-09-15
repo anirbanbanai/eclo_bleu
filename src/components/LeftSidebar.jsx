@@ -45,7 +45,7 @@ const LeftSideBar = () => {
             <div className='pt-10 flex w-full flex-1 flex-col gap-6 px-6  max-lg:items-center'>
  {
     RouteLinks.map(({route, name,icon, exact})=>(
-        <NavLink exact={route === '/'} key={route} activeClassName="bg-red-500  p-1 rounded-3xl flex gap-2" className="flex items-center gap-2" href={route}> <h1 className=' text-2xl bg-blue-100 rounded-3xl p-3'>{icon}</h1> <span className='text-2xl max-lg:hidden'>{name}</span> </NavLink>
+        <NavLink exact={route === '/'} key={route} activeClassName="bg-red-500  p-1 rounded-3xl flex gap-2" className="flex items-center gap-2" href={route}> <h1 className=' text-2xl bg-blue-100 rounded-3xl p-3'>{icon}</h1> <span className='text-xl max-lg:hidden'>{name}</span> </NavLink>
     ))
  }
 

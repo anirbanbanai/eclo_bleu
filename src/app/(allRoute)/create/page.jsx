@@ -19,7 +19,7 @@ const Createe = () => {
     const route = useRouter()
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        const alldata = { post: data?.post, email: user?.email, name: user?.displayName, img: user?.photoURL }
+        const alldata = { post: data?.post, email: user?.email, name: user?.displayName, img: user?.photoURL, date: new Date }
         // console.log(data);
 
         axios.post("https://bleust-server-886sy7kxr-anirbanbanai.vercel.app/all", alldata)

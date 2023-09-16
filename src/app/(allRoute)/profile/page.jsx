@@ -2,6 +2,7 @@
 import SubPofilePage from '@/components/SubPofilePage';
 import { AuthContext } from '@/components/authContext';
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useContext, useEffect, useState } from 'react';
 import { FiEdit2 } from 'react-icons/fi';
 
@@ -17,10 +18,11 @@ const page = () => {
             .then(data => {
                 setData(data)
             })
-    }, [])
+    }, [user?.email])
     // console.log(data);
     return (
         <div>
+           {user? <div>
             <div className='mx-auto flex  justify-center p-5'>
                 <div className=''>
                    
@@ -40,6 +42,13 @@ const page = () => {
                 data?.map(m=> <SubPofilePage key={m._id} m={m}/>)
                }
             </div>
+        </div> 
+    : <div className='text-center pt-20'> 
+      <Link href='/login'>
+      <button className='btn text-red-500 text-3xl font-bold'>Login first</button>
+      </Link>
+    </div>   
+    }
         </div>
     );
 };

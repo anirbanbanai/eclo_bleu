@@ -9,9 +9,10 @@ import { MdOutlinePublic } from 'react-icons/md';
 import { RiDeleteBin5Line } from 'react-icons/ri';
 import { VscCommentDiscussion } from 'react-icons/vsc';
 import Swal from 'sweetalert2';
+import { format } from 'timeago.js';
 
 const SubPofilePage = ({ m }) => {
-    const { email, img, name, post, _id } = m;
+    const { date, img, name, post, _id } = m;
     // console.log(_id);
     const handleDelete = () => {
         Swal.fire({
@@ -24,7 +25,7 @@ const SubPofilePage = ({ m }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`https://bleust-server-6ihqyhyba-anirbanbanai.vercel.app/all/${_id}`)
+                axios.delete(`https://bleust-server.vercel.app/all/${_id}`)
                     .then(data => {
                         // console.log(data);
                         if (data.data.acknowledged === true) {
@@ -47,7 +48,9 @@ const SubPofilePage = ({ m }) => {
                     <Image src={img} alt='svg' className=' rounded-full' width={34} height={34} />
                     <div>
                         <p className='font-bold '>{name}</p>
-                        <p className='flex gap-1 items-center'>2 hour ago <span><MdOutlinePublic /></span></p>
+                        <p className='flex gap-1 items-center'>
+                        { format(date, 'en_US')}
+                             <span><MdOutlinePublic /></span></p>
                     </div>
                 </div>
                 <div>

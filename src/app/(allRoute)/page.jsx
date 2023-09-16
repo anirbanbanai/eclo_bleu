@@ -19,7 +19,7 @@ const page = () => {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
-        fetch("https://bleust-server-886sy7kxr-anirbanbanai.vercel.app/all")
+        fetch("https://bleust-server.vercel.app/all")
             .then(res => res.json())
             .then(data => {
                 setData(data)

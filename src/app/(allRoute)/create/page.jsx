@@ -22,7 +22,7 @@ const Createe = () => {
         const alldata = { post: data?.post, email: user?.email, name: user?.displayName, img: user?.photoURL, date: new Date }
         // console.log(data);
 
-        axios.post("https://bleust-server-886sy7kxr-anirbanbanai.vercel.app/all", alldata)
+        axios.post("https://bleust-server.vercel.app/all", alldata)
             .then(res => {
                 // console.log(res.data);
                 if (res.data.acknowledged === true) {

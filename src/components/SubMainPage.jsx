@@ -9,11 +9,12 @@ import { BsBookmarks } from 'react-icons/bs';
 import { RiDeleteBin5Line } from 'react-icons/ri';
 import { useContext } from 'react';
 import { AuthContext } from './authContext';
+import { format } from 'timeago.js';
 
 const SubMainpage = ({ main }) => {
     const { user } = useContext(AuthContext)
     console.log(main);
-    const { post, email, img, name } = main
+    const { post, date, img, name } = main
     return (
         <div className=' p-2 md:p-3 border border-stone-600  m-4 rounded-xl'>
             <div className='mb-5 flex items-center gap-2'>
@@ -21,7 +22,10 @@ const SubMainpage = ({ main }) => {
                 <Image src={img} alt='svg' className=' rounded-full' width={34} height={34} />
                 <div>
                     <p className='font-bold '>{name}</p>
-                    <p className='flex gap-1 items-center'>2 hour ago <span><MdOutlinePublic /></span></p>
+                    <p className='flex gap-1 items-center'>
+                        
+                       { format(date, 'en_US')}
+                     <span><MdOutlinePublic /></span></p>
                 </div>
 
             </div>

@@ -11,7 +11,7 @@ import { VscCommentDiscussion } from 'react-icons/vsc';
 import Swal from 'sweetalert2';
 
 const SubPofilePage = ({ m }) => {
-    const { email, img, name, post,_id } = m;
+    const { email, img, name, post, _id } = m;
     // console.log(_id);
     const handleDelete = () => {
         Swal.fire({
@@ -22,22 +22,22 @@ const SubPofilePage = ({ m }) => {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
                 axios.delete(`https://bleust-server-6ihqyhyba-anirbanbanai.vercel.app/all/${_id}`)
-                .then(data=>{
-                  // console.log(data);
-                  if(data.data.acknowledged === true){
-                      Swal.fire(
-                          'Deleted!',
-                          'Your file has been deleted.',
-                          'success'
-                        )
-                  }
-                })
+                    .then(data => {
+                        // console.log(data);
+                        if (data.data.acknowledged === true) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
             }
-          })
-      
+        })
+
     }
     return (
         <div className=' p-2 md:p-3 border border-stone-600  m-4 rounded-xl'>

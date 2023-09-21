@@ -63,7 +63,7 @@ const Navbar = () => {
                             </li>
                             <li>
                                 {!user ? <Link href="/login">
-                                    <span className="flex gap-2 items-center"><BiLogInCircle className="text-3xl"/> <span className="text-sm font-semibold">Login</span></span>
+                                    <span className="flex gap-2 items-center text-green-500"><BiLogInCircle className="text-3xl"/> <span className="text-sm font-semibold">Login</span></span>
                                 </Link> :
                                     <button onClick={handleLogOut} className='text-red-500 text-3xl'>
                                         <RiLogoutCircleLine/> <span className="text-sm font-semibold">Logout</span></button>}
